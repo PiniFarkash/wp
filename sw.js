@@ -1,7 +1,7 @@
 
 self.addEventListener('push', function(event) {
 
-    var payload = event.data;
+    var payload = JSON.parse(event.data);
 
     if (payload) {
         
