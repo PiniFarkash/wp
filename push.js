@@ -1,4 +1,4 @@
-var push = require('web-push')
+var push = require('web-push');
 
 let vapidKeys = {
     publicKey: 'BF21kD_nyZBb0XifN6_SPTaDVRaPNkPyWXQUaGw0U5UKlmYQCIzLO8gIuL-5IWk5BoecpSv9xiEsm9ZOGev6iIQ',
