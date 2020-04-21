@@ -1,5 +1,10 @@
 
 self.addEventListener('push', function(event) {
+
+    if (event.data) {
+        console.log(event.data.json());
+      }
+      
     var options = {
       dir: 'rtl',
       lang: 'he',
@@ -18,8 +23,5 @@ self.addEventListener('push', function(event) {
       ]
     };
     event.waitUntil(self.registration.showNotification('טרמפ למיל', options));
-    if (event.data) {
-        console.log(event.data.json());
-      }
     
   });
