@@ -44,7 +44,7 @@ const convertedVapidKey = urlBase64ToUint8Array(vapidPublicKey);
         });
                 
         console.log(JSON.stringify(push));
-        document.getElementById("push").innerHTML = push;
+        document.getElementById("push").innerHTML = JSON.stringify(push);
 
     }
 </script>
