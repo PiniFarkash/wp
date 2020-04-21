@@ -4,6 +4,8 @@ self.addEventListener('push', function(event) {
     if (event.data) {
         console.log(event.data.json());
       }
+    
+    var title = data.title;
 
     var options = {
       dir: 'rtl',
@@ -22,6 +24,6 @@ self.addEventListener('push', function(event) {
           icon: 'images/xmark.png'},
       ]
     };
-    event.waitUntil(self.registration.showNotification(data.title, options));
+    event.waitUntil(self.registration.showNotification(title, options));
     
   });
