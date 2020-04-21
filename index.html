@@ -32,8 +32,10 @@ const vapidPublicKey = 'BF21kD_nyZBb0XifN6_SPTaDVRaPNkPyWXQUaGw0U5UKlmYQCIzLO8gI
 const convertedVapidKey = urlBase64ToUint8Array(vapidPublicKey);
 
     addEventListener('load', async () => {
-        let sw = await navigator.serviceWorker.register('./sw.js')
-        console.log(sw)
+        let sw = await navigator.serviceWorker.register('./sw.js', {
+            updateViaCache: 'none',
+        });
+        console.log(sw);
     })
 
     async function subscribe () {
