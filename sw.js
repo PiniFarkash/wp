@@ -12,7 +12,7 @@ self.addEventListener('push', function(e) {
       actions: [
         {action: 'explore', title: 'Explore this new world',
           icon: 'images/checkmark.png'},
-        {action: 'close', title: 'Close',
+        {action: 'close', title: 'Close Me',
           icon: 'images/xmark.png'},
       ]
     };
