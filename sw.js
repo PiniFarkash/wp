@@ -2,9 +2,9 @@
 self.addEventListener('push', function(event) {
 
     if (event.data) {
-        console.log(event.data.json());
+        console.log(event.data);
       }
-      
+
     var options = {
       dir: 'rtl',
       lang: 'he',
