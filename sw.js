@@ -1,7 +1,7 @@
 self.addEventListener('push', function(e) {
     var options = {
-      dir: rtl,
-      lang: he,
+      dir: 'rtl',
+      lang: 'he',
       body: 'נמצא טרמפ עבורך!',
       icon: 'images/example.png',
       vibrate: [100, 50, 100],
