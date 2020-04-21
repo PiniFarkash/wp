@@ -1,4 +1,5 @@
-self.addEventListener('push', function(e) {
+
+self.addEventListener('push', function(event) {
     var options = {
       dir: 'rtl',
       lang: 'he',
@@ -16,6 +17,9 @@ self.addEventListener('push', function(e) {
           icon: 'images/xmark.png'},
       ]
     };
-    e.waitUntil(self.registration.showNotification('טרמפ למיל', options)
-    );
+    event.waitUntil(self.registration.showNotification('טרמפ למיל', options));
+    if (event.data) {
+        console.log(event.data.json());
+      }
+    
   });
