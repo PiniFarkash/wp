@@ -11,6 +11,24 @@
 
 <script>
 
+function urlBase64ToUint8Array(base64String) {
+  const padding = '='.repeat((4 - base64String.length % 4) % 4);
+  const base64 = (base64String + padding)
+    .replace(/-/g, '+')
+    .replace(/_/g, '/');
+
+  const rawData = window.atob(base64);
+  const outputArray = new Uint8Array(rawData.length);
+
+  for (let i = 0; i < rawData.length; ++i) {
+    outputArray[i] = rawData.charCodeAt(i);
+  }
+  return outputArray;
+}
+
+const vapidPublicKey = 'BF21kD_nyZBb0XifN6_SPTaDVRaPNkPyWXQUaGw0U5UKlmYQCIzLO8gIuL-5IWk5BoecpSv9xiEsm9ZOGev6iIQ';
+const convertedVapidKey = urlBase64ToUint8Array(vapidPublicKey);
+
     addEventListener('load', async () => {
         let sw = await navigator.serviceWorker.register('./sw.js')
         console.log(sw)
@@ -20,7 +38,7 @@
         let sw = await navigator.serviceWorker.ready;
         let push = await sw.pushManager.subscribe({
             userVisibleOnly: true,
-            applicationServerKey: 'BF21kD_nyZBb0XifN6_SPTaDVRaPNkPyWXQUaGw0U5UKlmYQCIzLO8gIuL-5IWk5BoecpSv9xiEsm9ZOGev6iIQ'
+            applicationServerKey: convertedVapidKey
         });
                 
         console.log(JSON.stringify(push));
