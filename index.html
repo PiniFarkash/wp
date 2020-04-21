@@ -9,6 +9,8 @@
     
 <button onclick="subscribe()">Subscribe</button>
 
+<p id="push"></p>
+
 <script>
 
 function urlBase64ToUint8Array(base64String) {
@@ -42,10 +44,11 @@ const convertedVapidKey = urlBase64ToUint8Array(vapidPublicKey);
         });
                 
         console.log(JSON.stringify(push));
+        document.getElementById("push").innerHTML = push;
+
     }
 </script>
 
-{{ push }}
 
 </body>
 </html>
