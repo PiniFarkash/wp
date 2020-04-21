@@ -8,7 +8,7 @@ self.addEventListener('push', function(event) {
     var options = {
       dir: 'rtl',
       lang: 'he',
-      body: 'נמצא טרמפ עבורך!',
+      body: data.body,
       icon: 'images/example.png',
       vibrate: [100, 50, 100],
       data: {
@@ -22,6 +22,6 @@ self.addEventListener('push', function(event) {
           icon: 'images/xmark.png'},
       ]
     };
-    event.waitUntil(self.registration.showNotification('טרמפ למיל', options));
+    event.waitUntil(self.registration.showNotification(data.title, options));
     
   });
