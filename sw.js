@@ -1,16 +1,19 @@
 
 self.addEventListener('push', function(event) {
 
-    if (event.data) {
-        console.log(event.data.json());
+    var payload = event.data;
+
+    if (payload) {
+        
+        console.log(payload.json());
       }
     
-    var title = data.title;
+    var title = payload.title;
 
     var options = {
       dir: 'rtl',
       lang: 'he',
-      body: data.body,
+      body: payload.body,
       icon: 'images/example.png',
       vibrate: [100, 50, 100],
       data: {
